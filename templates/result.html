@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block result %}
+	{% if error %}
+		{% if error == 'InvalidDataNotNumberError' %}
+			<p>Sorry, but you wrote incorrect numbers. Please, try again</p>
+		{% elif error == 'DivisionByZeroError' %}
+			<p>Please, read instructions above. You couldn't divide into zero</p>
+		{% elif error == 'UnexpectedAndUnknownError' %}
+			<p>Something unexpected has happen. Please, restart this page</p>
+		{% endif %}
+	{% else %}
+		<p>{{ form.first_number }} {{ form.operator }} {{ form.second_number }} = {{ result }}</p>
+		
+	{% endif %}
+
+	
+{% endblock %}
